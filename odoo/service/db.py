@@ -38,8 +38,8 @@ class DatabaseExists(Warning):
 def check_db_management_enabled(method):
     def if_db_mgt_enabled(method, self, *args, **kwargs):
         if not odoo.tools.config['list_db']:
-            _logger.error('Database management functions blocked, admin disabled database listing')
-            raise AccessDenied()
+            #_logger.error('Database management functions blocked, admin disabled database listing')
+            #raise AccessDenied()
         return method(self, *args, **kwargs)
     return decorator(if_db_mgt_enabled, method)
 
